@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:8080",
+  baseURL:
+    import.meta.env.VITE_API_URL ||
+    "https://week-7-assignment-9ux7.onrender.com",
 });
 
 // Add user registration API call

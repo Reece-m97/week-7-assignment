@@ -73,19 +73,19 @@ app.get("/deeds", async (req, res) => {
   try {
     const query = `
         SELECT 
-    deeds.id AS deed_id,
-    deeds.description,
-    deeds.category,
-    deeds.date,
-    users.villain_name,
-    COUNT(reactions.id) AS evil_laughs,
-    COUNT(comments.id) AS comments_count
-FROM deeds
-LEFT JOIN users ON deeds.user_id = users.id
-LEFT JOIN reactions ON deeds.id = reactions.deed_id
-LEFT JOIN comments ON deeds.id = comments.deed_id
-GROUP BY deeds.id, users.villain_name
-ORDER BY deeds.date DESC;
+          deeds.id AS deed_id,
+          deeds.description,
+          deeds.category,
+          deeds.date,
+          users.villain_name AS villain_name,
+          COUNT(reactions.id) AS evil_laughs,
+          COUNT(comments.id) AS comments_count
+        FROM deeds
+        LEFT JOIN users ON deeds.user_id = users.id
+        LEFT JOIN reactions ON deeds.id = reactions.deed_id
+        LEFT JOIN comments ON deeds.id = comments.deed_id
+        GROUP BY deeds.id, users.villain_name
+        ORDER BY deeds.date DESC;
       `;
     const result = await db.query(query);
     res.json(result.rows);
