@@ -9,11 +9,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav style={styles.navbar}>
-      <div style={styles.logo}>
-        <h1>Villain Hub</h1>
-      </div>
-      <ul style={styles.navLinks}>
+    <nav className="navbar">
+      <div className="logo">Villain Hub</div>
+      <ul className="nav-links">
         <li>
           <Link to="/dashboard">Dashboard</Link>
         </li>
@@ -27,37 +25,11 @@ const Navbar = () => {
           <Link to="/deed-log">Deed Log</Link>
         </li>
       </ul>
-      <button onClick={handleLogout} style={styles.logoutButton}>
+      <button onClick={handleLogout} className="logout-btn">
         Logout
       </button>
     </nav>
   );
-};
-
-const styles = {
-  navbar: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "1rem 2rem",
-    backgroundColor: "#333",
-    color: "#fff",
-  },
-  logo: {
-    fontSize: "1.5rem",
-  },
-  navLinks: {
-    listStyle: "none",
-    display: "flex",
-    gap: "1.5rem",
-  },
-  logoutButton: {
-    backgroundColor: "red",
-    color: "#fff",
-    border: "none",
-    padding: "0.5rem 1rem",
-    cursor: "pointer",
-  },
 };
 
 export default Navbar;

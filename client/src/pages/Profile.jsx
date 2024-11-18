@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import api from "../api/api";
+import { getUserProfile } from "../api/api";
+import { getUser } from "../utils/auth";
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
@@ -7,8 +8,13 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const userId = 1; // Replace with the logged-in user's ID
-        const response = await api.get(`/users/${userId}`);
+        const user = getUser(); // Get user info from storage
+        if (!user) {
+          console.error("User not logged in");
+          return;
+        }
+
+        const response = await getUserProfile(user.id); // Pass dynamic ID
         setProfile(response.data);
       } catch (err) {
         console.error("Error fetching profile:", err);

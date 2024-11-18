@@ -30,7 +30,7 @@ const DeedLog = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user_id = localStorage.getItem("user_id"); // Assuming you store the user ID in localStorage
+      const user_id = localStorage.getItem("user_id");
       const newDeed = { ...form, user_id };
       await addDeed(newDeed);
       alert("Deed added successfully!");

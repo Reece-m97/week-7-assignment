@@ -18,7 +18,7 @@ const Register = () => {
     try {
       await register({ username, password, villainName });
       setSuccess("Registration successful! You can now log in.");
-      setTimeout(() => navigate("/login"), 2000); // Redirect after success
+      setTimeout(() => navigate("/"), 2000); // Redirect after success
     } catch (err) {
       console.error("Registration failed:", err.response?.data || err.message);
       setError(err.response?.data?.error || "Registration failed.");
@@ -57,7 +57,7 @@ const Register = () => {
       <button type="submit">Register</button>
       <p>
         Already have an account?{" "}
-        <button type="button" onClick={() => navigate("/login")}>
+        <button type="button" onClick={() => navigate("/")}>
           Login here
         </button>
       </p>

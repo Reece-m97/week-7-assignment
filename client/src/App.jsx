@@ -6,6 +6,7 @@ import Profile from "./pages/Profile";
 import Leaderboard from "./pages/Leaderboard";
 import DeedLog from "./pages/DeedLog";
 import Layout from "./components/Layout";
+import "./App.css";
 
 function App() {
   return (
